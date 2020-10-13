@@ -13,7 +13,6 @@
 	<artifactId>RchMain</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>RchMain</name>
-	<description>Roche assignment</description>
 
 	<properties>
 		<java.version>11</java.version>

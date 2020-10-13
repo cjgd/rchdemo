@@ -79,9 +79,6 @@ public class RchRest {
 			@PathParam("start") @DateTimeFormat(iso = ISO.DATE) Date startDate,
 			@PathParam("end") @DateTimeFormat(iso = ISO.DATE) Date endDate) {
     	LOG.debug("requesting order list between: {}, and: {}", startDate, endDate);
-    	for (Order o : rch.orderList(null,  null)) {
-    		LOG.info("order: {} = {}", o, o.totalPrice());
-    	}
     	return rch.orderList(startDate, endDate);
 	}
 

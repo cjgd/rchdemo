@@ -35,7 +35,6 @@ public class Order {
 
     private Date createdOn;
 
-//    @JsonBackReference
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> items;
 
