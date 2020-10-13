@@ -1,6 +1,7 @@
 package com.github.cjgd.RchMain;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -33,6 +34,8 @@ class RchMainApplicationTests {
 		assertEquals(1, ps.size());
 		assertEquals(p.getName(), ps.get(0).getName());
 		assertEquals(p.getPrice(), ps.get(0).getPrice());
+		assertNotNull(ps.get(0).getId());
+		assertNotNull(ps.get(0).getCreatedOn());
 
 		// update / list
 		p.setPrice(2);
