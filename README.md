@@ -1,3 +1,7 @@
+# Springboot REST demo
+
+A demo springboot complete REST API for a fictional product catalog with orders.
+
 # How to build/run
 
         mvn clean package
