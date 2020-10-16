@@ -6,6 +6,6 @@ import lombok.Data;
 
 @Data
 public class OrderR {
-	private List<Long> productIds;
-	private String email;
+    private List<Long> productIds;
+    private String email;
 }

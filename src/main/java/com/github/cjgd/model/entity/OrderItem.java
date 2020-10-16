@@ -17,25 +17,25 @@ import lombok.ToString;
 @Table(name = "tbl_order_item")
 public class OrderItem {
 
-	public OrderItem() {
-	}
+    public OrderItem() {
+    }
 
-	public OrderItem(Order order, Product product) {
-		this.order = order;
-		this.product = product;
-	}
+    public OrderItem(Order order, Product product) {
+        this.order = order;
+        this.product = product;
+    }
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-	@ToString.Exclude
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "order_id")
-	private Order order;
+    @ToString.Exclude
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 
-	@ManyToOne
-	@JoinColumn(name = "product_id")
-	private Product product;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 }

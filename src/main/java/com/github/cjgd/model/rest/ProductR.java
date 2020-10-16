@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class ProductR {
-	private String name;
-	private double price;
+    private String name;
+    private double price;
 }

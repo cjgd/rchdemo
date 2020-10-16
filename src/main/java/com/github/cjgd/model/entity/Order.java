@@ -18,20 +18,20 @@ import lombok.Data;
 @Table(name = "tbl_order")
 public class Order {
 
-	public Order() {
-	}
+    public Order() {
+    }
 
-	public Order(String buyerEmail) {
-		this.buyerEmail = buyerEmail;
-		this.createdOn = new Date();
-		this.items = new ArrayList<>();
-	}
+    public Order(String buyerEmail) {
+        this.buyerEmail = buyerEmail;
+        this.createdOn = new Date();
+        this.items = new ArrayList<>();
+    }
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-	private String buyerEmail;
+    private String buyerEmail;
 
     private Date createdOn;
 
@@ -39,12 +39,12 @@ public class Order {
     private List<OrderItem> items;
 
     public double totalPrice() {
-    	double tot = 0;
-    	if (items != null) {
-    		for (OrderItem x : items) {
-    			tot += x.getProduct().getPrice();
-    		}
-    	}
-    	return tot;
+        double tot = 0;
+        if (items != null) {
+            for (OrderItem x : items) {
+                tot += x.getProduct().getPrice();
+            }
+        }
+        return tot;
     }
 }

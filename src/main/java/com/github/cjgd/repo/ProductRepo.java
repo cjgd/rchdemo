@@ -8,5 +8,5 @@ import com.github.cjgd.model.entity.Product;
 @Repository
 public interface ProductRepo extends CrudRepository<Product, Long> {
 
-	Iterable<Product> findAllByEnabled(boolean b);
+    Iterable<Product> findAllByEnabled(boolean b);
 }

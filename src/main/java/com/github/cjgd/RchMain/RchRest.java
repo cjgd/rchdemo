@@ -28,39 +28,39 @@ public class RchRest {
 
     private static final Logger LOG = LoggerFactory.getLogger(RchRest.class);
 
-	@Autowired
-	private RchService rch;
+    @Autowired
+    private RchService rch;
 
-	/*
-	 * PRODUCT
-	 */
+    /*
+     * PRODUCT
+     */
 
-	/** create a new product */
+    /** create a new product */
     @RequestMapping(value = "product", method = RequestMethod.POST)
-	public Map<String, Long> productCreate(@RequestBody ProductR product) {
-    	long id = rch.productCreate(product);
-		return Collections.singletonMap("id", id);
-	}
+    public Map<String, Long> productCreate(@RequestBody ProductR product) {
+        long id = rch.productCreate(product);
+        return Collections.singletonMap("id", id);
+    }
 
     /** retrieve all products */
     @RequestMapping(value = "products", method = RequestMethod.GET)
-	public Iterable<Product> productList() {
-    	return rch.productList();
-	}
+    public Iterable<Product> productList() {
+        return rch.productList();
+    }
 
     /** update product */
     @RequestMapping(value = "product/{id}", method = RequestMethod.PUT)
-	public Map<String, Boolean> productUpdate(@PathVariable("id") long productId, @RequestBody ProductR product) {
-    	boolean status = rch.productUpdate(productId, product);
-    	return Collections.singletonMap("status", status);
+    public Map<String, Boolean> productUpdate(@PathVariable("id") long productId, @RequestBody ProductR product) {
+        boolean status = rch.productUpdate(productId, product);
+        return Collections.singletonMap("status", status);
     }
 
-	/** delete a product */
+    /** delete a product */
     @RequestMapping(value = "product/{id}", method = RequestMethod.DELETE)
-	public Map<String, Boolean> product(@PathVariable("id") long productId) {
-    	boolean status = rch.productDisable(productId);
-    	return Collections.singletonMap("status", status);
-	}
+    public Map<String, Boolean> product(@PathVariable("id") long productId) {
+        boolean status = rch.productDisable(productId);
+        return Collections.singletonMap("status", status);
+    }
 
     /*
      * ORDER
@@ -68,19 +68,19 @@ public class RchRest {
 
     /** place an order */
     @RequestMapping(value = "order", method = RequestMethod.POST)
-	public Map<String, Long> orderCreate(@RequestBody OrderR order) {
-    	long id = rch.orderCreate(order);
-		return Collections.singletonMap("id", id);
-	}
+    public Map<String, Long> orderCreate(@RequestBody OrderR order) {
+        long id = rch.orderCreate(order);
+        return Collections.singletonMap("id", id);
+    }
 
     /** return all orders within a time period */
     @RequestMapping(value = "orders", method = RequestMethod.GET)
-	public Iterable<Order> orderList(
-			@PathParam("start") @DateTimeFormat(iso = ISO.DATE) Date startDate,
-			@PathParam("end") @DateTimeFormat(iso = ISO.DATE) Date endDate) {
-    	LOG.debug("requesting order list between: {}, and: {}", startDate, endDate);
-    	return rch.orderList(startDate, endDate);
-	}
+    public Iterable<Order> orderList(
+            @PathParam("start") @DateTimeFormat(iso = ISO.DATE) Date startDate,
+            @PathParam("end") @DateTimeFormat(iso = ISO.DATE) Date endDate) {
+        LOG.debug("requesting order list between: {}, and: {}", startDate, endDate);
+        return rch.orderList(startDate, endDate);
+    }
 
 }
 
